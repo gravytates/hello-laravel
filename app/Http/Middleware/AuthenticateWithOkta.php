@@ -24,8 +24,8 @@ class AuthenticateWithOkta
 
     public function isAuthorized($request)
     {
-        $clientId = env('CLIENT_ID')
-        $issuerURL = env('ISSUER_URL')
+        $clientId = env('CLIENT_ID');
+        $issuerURL = env('ISSUER_URL');
         if (! $request->header('Authorization')) {
             return false;
         }

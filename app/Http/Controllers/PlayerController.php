@@ -61,6 +61,6 @@ class PlayerController extends Controller
         $player->answers = 0;
         $player->points = 0;
 
-        return new PlayerResource($player)
+        return new PlayerResource($player);
     }
 }
