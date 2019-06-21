@@ -28,8 +28,8 @@ class PlayerController extends Controller
         $player = Player::create($request->all());
 
         return (new PlayerResource($player))
-            ->response()
-            ->setStatusCode(201);
+                ->response()
+                ->setStatusCode(201);
     }
 
     public function answer($id, Request $request)
@@ -41,7 +41,9 @@ class PlayerController extends Controller
 
         $player = Player::findOrFail($id);
         $player->answers++;
-        $player->points = ($request->get('correct') ? $player->points + 1 : $player->points - 1);
+        $player->points = ($request->get('correct')
+                           ? $player->points + 1
+                           : $player->points - 1);
         $player->save();
 
         return new PlayerResource($player);
@@ -57,7 +59,7 @@ class PlayerController extends Controller
 
     public function resetAnswers($id)
     {
-        $player = Player::findOrFain($id);
+        $player = Player::findOrFail($id);
         $player->answers = 0;
         $player->points = 0;
 

@@ -17,7 +17,7 @@ Route::get('/players/{id}', 'PlayerController@show');
 Route::post('/players', 'PlayerController@store');
 Route::post('/players/{id}/answers', 'PlayerController@answer');
 Route::delete('/players/{id}', 'PlayerController@delete');
-Route::delete('players/{id}/answers', 'PlayerController@resetAnswers');
+Route::delete('/players/{id}/answers', 'PlayerController@resetAnswers');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
