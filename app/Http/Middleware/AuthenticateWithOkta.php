@@ -35,9 +35,9 @@ class AuthenticateWithOkta
         @list($authType, $authData) = explode(" ", $request->header('Authorization'), 2);
 
         // If the Authorization Header is not a bearer type, return a 401.
-        // if ($authType != 'Bearer') {
-        //     return false;
-        // }
+        if ($authType != 'Bearer') {
+            return false;
+        }
 
         // Attempt authorization with the provided token
         try {
